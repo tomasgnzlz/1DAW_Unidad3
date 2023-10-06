@@ -24,7 +24,7 @@ public class U4Ej2_C {
         System.out.println("Introduce un numero");
         int numX = teclado.nextInt();
         String resultado = "";
-
+        
         //A
         resultado = (numX >= 135) ? "Mayor" : "Menor";
 
