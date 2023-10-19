@@ -25,7 +25,7 @@ public class EjNumerosMeet {
             System.out.println("Introduce el " + i + " num");
             numeros = teclado.nextInt();
             total += numeros;
-            String PArImpar = (numeros % 2 == 0)? "Par": "Impar";
+            String parImpar = (numeros % 2 == 0)? "Par": "Impar";
         }
         
         double media = (double)total/num;
