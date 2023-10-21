@@ -33,6 +33,7 @@ public class EjRandom1 {
             for (int i = 1; i < cantidadIntentos + 1; i++) {
                 System.out.println("Intento Nº: " + i);
                 intentos = teclado.nextInt();
+                teclado.nextLine();//Limpio el buffer
 
                 if (intentos == numeroAleatorio) {
                     adivinado = true;
@@ -47,11 +48,9 @@ public class EjRandom1 {
 
             String resultado = (adivinado == true) ? "Felicidades has acertado" : "El numero a adivinar era: " + numeroAleatorio;
             System.out.println(resultado);
-            
-            
-            
-            
-            System.out.println("¿Quieres?");
+
+            System.out.println("¿Quieres seguir?");
+            opcion = teclado.nextLine();
 
         } while (opcion.equalsIgnoreCase("Si"));
     }

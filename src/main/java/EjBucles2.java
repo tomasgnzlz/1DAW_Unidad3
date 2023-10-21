@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author tomas
  */
-public class EjRndom2 {
+public class EjBucles2 {
     /*
     Una persona compra un coche por un precio X y lo va a pagar en N meses. 
     Realiza el cuadro de pagos suponiendo que cada mes paga la mitad de lo que 
