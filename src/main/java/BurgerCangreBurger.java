@@ -48,10 +48,9 @@ public class BurgerCangreBurger {
 
             if (numRandom % 2 == 0) {
                 System.out.println("\nSe le descuenta del total un 25% al cliente.\n");
-                
-                total = cantidadPagar -(cantidadPagar*NO_DESCUENTO);
-                //total = cantidadPagar * (1 - DESCUENTO3);
 
+                total = cantidadPagar - (cantidadPagar * NO_DESCUENTO);
+                //total = cantidadPagar * (1 - DESCUENTO3);
                 
                 resultado = """
                                     *************BURGERCANGREBURGER*************
@@ -60,7 +59,6 @@ public class BurgerCangreBurger {
                                     TOTAL: %.2f€
                                     """.formatted(cantidadPagar, NO_DESCUENTO, total);
                 System.out.println(resultado);
-
             } else {
                 //Como el nº es impar se saca bola.
                 System.out.println("""
@@ -86,7 +84,7 @@ public class BurgerCangreBurger {
                     }
                     case 2 -> {
                         System.out.println("\nHa salido la bola roja. 12% Descuento\n");
-                        total = cantidadPagar -(cantidadPagar*DESCUENTO2);
+                        total = cantidadPagar - (cantidadPagar * DESCUENTO2);
                         resultado = """
                         *************BURGERCANGREBURGER*************
                         A PAGAR: %.2f€
@@ -97,7 +95,7 @@ public class BurgerCangreBurger {
                     }
                     case 3 -> {
                         System.out.println("\nHa salido la bola amarilla. 5% Descuento\n");
-                        total = cantidadPagar -(cantidadPagar*DESCUENTO3);
+                        total = cantidadPagar - (cantidadPagar * DESCUENTO3);
                         resultado = """
                         *************BURGERCANGREBURGER*************
                         A PAGAR: %.2f€
@@ -106,7 +104,6 @@ public class BurgerCangreBurger {
                         """.formatted(cantidadPagar, DESCUENTO3, total);
                         System.out.println(resultado);
                     }
-
                 }
 
             }
