@@ -30,7 +30,7 @@ public class NumberFormatEjemplo {
 
         boolean repetir = true;
         int edad = -1; // Edad no válida
-        
+
         do {
             String tmp = JOptionPane.showInputDialog("Introduce tu edad: ");
             try {
@@ -40,7 +40,7 @@ public class NumberFormatEjemplo {
                 JOptionPane.showConfirmDialog(null, "No has introducido un número entero.");
             }
         } while (repetir);
-        
+
         return edad;
     }
 }

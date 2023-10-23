@@ -47,7 +47,7 @@ public class pruebas {
                 System.out.print("1. Picual \n2. Alorenia \n3. HojiBlanca\n");
                 try {
                     tipoAceitunaNombre = teclado.nextInt();// Guardo la opción del usuario. 
-                    System.out.println("HA SELECCIONADO " + tipoAceitunaNombre);
+                    System.out.println("HA SELECCIONADO CORRECTAMENTE " + tipoAceitunaNombre);
                     repetir = false;
                 } catch (InputMismatchException ime) {
                     System.out.println("ERROR - Introduce un número (1-2-3)");
@@ -56,53 +56,41 @@ public class pruebas {
 
             } while (repetir || (tipoAceitunaNombre < 1 || tipoAceitunaNombre > 3));
             //} while (tipoAceitunaNombre < 1 || tipoAceitunaNombre > 3);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+            //
+            //
+            //
+
             //Creo un switch para que se haga una cosa u otra dependiendo de la opcion.
             switch (tipoAceitunaNombre) {
                 case 1 -> {
                     do {
+                        System.out.println("*************CASE 1*************");
                         System.out.print("Aceitunas Picual\n 1. Fina \n 2. Gruesa\n");
-
-                        //
                         try {
                             tipoAceitunaTamanio = teclado.nextInt();
-                            System.out.println("Introduce la cantidad(Kg)");
-                            kilos = teclado.nextDouble();
+                            System.out.println("HAS INTRODUCIDO CORRECTAMENTE PICUAL: " + tipoAceitunaTamanio);
+                            repetir = false;
                         } catch (InputMismatchException ime) {
-                            System.out.println("ERROR - Introduce un número (1-2)");
+                            System.out.println("ERROR - Introduce un número (1-2) \n");
                             teclado.nextLine();
                         }
 
                     } while (repetir || (tipoAceitunaTamanio < 1 || tipoAceitunaTamanio > 2));
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+                    //
+                    //
+                    // FILTAR QUE EL PESO SEA CORRECTO
+                    //
+                    //
+                    do {
+                        try {
+                            System.out.println("Introduce la cantidad(Kg)");
+                            kilos = teclado.nextDouble();
+                            repetir = false;
+                        } catch (InputMismatchException ime) {
+                            System.out.println("ERROR - Introduce unos Kg válidos \n");
+                            teclado.nextLine();
+                        }
+                    } while (repetir || kilos < 100);
 
                     // para filtrar el tamanio de la aceituna.
                     if (tipoAceitunaTamanio == 1) {
@@ -120,10 +108,35 @@ public class pruebas {
                     }
                 }
                 case 2 -> {
-                    System.out.print("Aceitunas Alorenia\n 1. Fina \n 2. Gruesa\n");
-                    tipoAceitunaTamanio = teclado.nextInt();
-                    System.out.println("Introduce la cantidad(Kg)");
-                    kilos = teclado.nextDouble();
+
+                    do {
+                        System.out.print("Aceitunas Alorenia\n 1. Fina \n 2. Gruesa\n");
+                        //
+                        //
+                        try {
+                            tipoAceitunaTamanio = teclado.nextInt();
+                            System.out.println("HAS INTRODUCIDO CORRECTAMENTE ALORENIA: " + tipoAceitunaTamanio);
+                            repetir = false;
+                        } catch (InputMismatchException ime) {
+                            System.out.println("ERROR - Introduce un número (1-2)");
+                            teclado.nextLine();
+                        }
+                    } while (repetir || (tipoAceitunaTamanio < 1 || tipoAceitunaTamanio > 2));
+                    //
+                    //
+                    // FILTAR QUE EL PESO SEA CORRECTO
+                    //
+                    //
+                    do {
+                        try {
+                            System.out.println("Introduce la cantidad(Kg)");
+                            kilos = teclado.nextDouble();
+                            repetir = false;
+                        } catch (InputMismatchException ime) {
+                            System.out.println("ERROR - Introduce unos Kg válidos \n");
+                            teclado.nextLine();
+                        }
+                    } while (repetir || kilos < 100);
                     if (tipoAceitunaTamanio == 1) {
                         totalGanancias = kilos * AC_ALORENIA_FINA;
                         String resultado = """
@@ -139,10 +152,36 @@ public class pruebas {
                     }
                 }
                 case 3 -> {
-                    System.out.print("Aceitunas HojiBlanca\n 1. Fina \n 2. Gruesa\n");
-                    tipoAceitunaTamanio = teclado.nextInt();
-                    System.out.println("Introduce la cantidad(Kg)");
-                    kilos = teclado.nextDouble();
+
+                    do {
+                        System.out.print("Aceitunas HojiBlanca\n 1. Fina \n 2. Gruesa\n");
+                        //
+                        //
+                        try {
+                            tipoAceitunaTamanio = teclado.nextInt();
+                            System.out.println("HAS INTRODUCIDO CORRECTAMENTE HOJIBLANCA: " + tipoAceitunaTamanio);
+                            repetir = false;
+                        } catch (InputMismatchException ime) {
+                            System.out.println("ERROR - Introduce un número (1-2)");
+                            teclado.nextLine();
+                        }
+                    } while (repetir || (tipoAceitunaTamanio < 1 || tipoAceitunaTamanio > 2));
+
+                    //
+                    //
+                    // FILTAR QUE EL PESO SEA CORRECTO
+                    //
+                    //
+                    do {
+                        try {
+                            System.out.println("Introduce la cantidad(Kg)");
+                            kilos = teclado.nextDouble();
+                            repetir = false;
+                        } catch (InputMismatchException ime) {
+                            System.out.println("ERROR - Introduce unos Kg válidos \n");
+                            teclado.nextLine();
+                        }
+                    } while (repetir || kilos < 100);
                     if (tipoAceitunaTamanio == 1) {
                         totalGanancias = kilos * AC_HOJIBLANCA_FINA;
                         String resultado = """
@@ -161,9 +200,13 @@ public class pruebas {
 
             //
             //
+            // FILTRAR QUE SOLO SE REPITA SI SE PONE "SI" SI SE PONE ALGUNA OTRA COSA SE HA DE REPETIR LA PREGUNTA Y SI SE PONE "NO" SE DEBERÁ TERMINAR EL PROGRAMA.
             teclado.nextLine();
-            System.out.println("¿Hay otro anciano con aceitunas?");
-            opcion = teclado.nextLine();
+            do {
+                System.out.println("Quieres seguir jugando?");
+                opcion = teclado.nextLine();
+            } while (!opcion.equalsIgnoreCase("Si") && !opcion.equalsIgnoreCase("No"));
+
         } while (opcion.equalsIgnoreCase("Si"));
 
     }
