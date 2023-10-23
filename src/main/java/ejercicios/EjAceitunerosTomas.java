@@ -30,23 +30,53 @@ public class EjAceitunerosTomas {
         double kilos = 0;
         double totalGanancias = 0;
         String opcion = ""; // para filtar la opción del usuario. 
+
         do {
 
             System.out.println("*************************************************");
             System.out.println(NOMBRE_EMPRESA);
             System.out.println("*************************************************");
-            do {                
-                try {
+//            do {
+//                System.out.println("Seleccione el tipo de Aceituna");
+//                System.out.print("1.Picual \n2. Alorenia \n3. HojiBlanca\n");
+//                try {
+//                    tipoAceitunaNombre = teclado.nextInt();// Guardo la opción del usuario. 
+//                    System.out.println("HA SELECCIONADO " + tipoAceitunaNombre);
+//                    repetir = false;
+//                } catch (InputMismatchException nfe) {
+//                    System.out.println("ERROR - Introduce (1-2-3)");
+//                    teclado.nextLine();
+//                }
+//            } while (repetir && (tipoAceitunaNombre == 1 || tipoAceitunaNombre == 2 || tipoAceitunaNombre == 3));
+
+            boolean repetir = true;
+            // Se pone dentro del bloque try la sentencia que puede producir 
+            // el error
+            do {
+                do {
                     System.out.println("Seleccione el tipo de Aceituna");
                     System.out.print("1.Picual \n2. Alorenia \n3. HojiBlanca\n");
-                    tipoAceitunaNombre = teclado.nextInt();// Guardo la opción del usuario. 
-                } catch (InputMismatchException nfe) {
-                    System.out.println("Introduce correctamente las opciones(1-2-3)");
-                } catch (NumberFormatException nfe) {
-                    System.out.println("Introduce solo numeros y no letras");
-                }
-            } while (tipoAceitunaNombre ==1 || tipoAceitunaNombre ==2 || tipoAceitunaNombre ==3 );
+                    try {
+                        tipoAceitunaNombre = teclado.nextInt();// Guardo la opción del usuario. 
+                        System.out.println("HA SELECCIONADO " + tipoAceitunaNombre);
+                        repetir = false;
+                    } catch (InputMismatchException ime) {
+                        System.out.println("ERROR - Introduce (1-2-3)");
+                        teclado.nextLine();
+                    }
+                } while (repetir);
+            } while (tipoAceitunaNombre < 1 && tipoAceitunaNombre > 3);
 
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
             //Creo un switch para que se haga una cosa u otra dependiendo de la opcion.
             switch (tipoAceitunaNombre) {
                 case 1 -> {

@@ -18,8 +18,8 @@ public class InputMismatchEjemplo {
 
     public static void main(String[] args) {
 
-        leerCalificacion();
-        leerCalificacionSinErrores();
+        //leerCalificacion();
+        //leerCalificacionSinErrores();
         leerCalificacionSinErroresBucle();
 
     }
