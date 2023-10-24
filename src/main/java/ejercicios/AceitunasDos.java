@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author tomas
  */
-public class pruebas {
+public class AceitunasDos {
 
     public static void main(String[] args) {
         //Declaro el objeto Scanner
@@ -79,6 +79,7 @@ public class pruebas {
                     // FILTAR QUE EL PESO SEA CORRECTO
                     //
                     //
+                    repetir = true;
                     do {
                         try {
                             System.out.println("Introduce la cantidad(Kg)");

@@ -60,27 +60,75 @@ public class PiedraPapelTijeras {
                 System.out.println("JUEGO DE DOS JUGADORES");
                 String jugador1 = JOptionPane.showInputDialog("¿Nombre jugador 1?");
                 String jugador2 = JOptionPane.showInputDialog("¿Nombre jugador 2?");
+                //El dado decide quien empieza
                 dado = random.nextInt(3);
                 dado = 1;
-                //El dado decide quien empieza
+
                 String sacaJugador1 = "", sacaJugador2 = "";
                 repetir = true; // Actualizo la variable
+                // Contadores para ver quien de los jugadores gana primero. 
+                int contador1 = 0, contador2 = 0;
                 if (dado == 1) {
-                    System.out.println("Empieza el jugador1");
-                    do {
-                        System.out.println("¿Jugador 1, Que vas a sacar piedra papel o,tijera?");
-                        try {
-                            sacaJugador1 = teclado.nextLine();
-                            repetir = false;
-                        } catch (InputMismatchException ime) {
-                            System.out.println("ERROR");
+                    System.out.println("Empieza el jugador1: " + jugador1);
 
+                    // Bucle para jugar 5Rondas
+                    for (int i = 0; i < 5; i++) {
+                        do {
+                            System.out.println("¿" + jugador1 + ", Que vas a sacar piedra ,papel o,tijera?");
+                            try {
+                                sacaJugador1 = teclado.nextLine();
+                                repetir = false;
+                            } catch (InputMismatchException ime) {
+                                System.out.println("ERROR");
+                            }
+
+                        } while (repetir || !(sacaJugador1.equalsIgnoreCase("Piedra") || sacaJugador1.equalsIgnoreCase("Papel") || sacaJugador1.equalsIgnoreCase("tijeras")));
+                        do {
+                            System.out.println("¿" + jugador2 + ", Que vas a sacar piedra ,papel o,tijera?");
+                            try {
+                                sacaJugador2 = teclado.nextLine();
+                                repetir = false;
+                            } catch (InputMismatchException ime) {
+                                System.out.println("ERROR");
+                            }
+                        } while (repetir || !(sacaJugador1.equalsIgnoreCase("Piedra") || sacaJugador1.equalsIgnoreCase("Papel") || sacaJugador1.equalsIgnoreCase("Tijeras")));
+                        //
+                        // Muestro las tiradas de ambos jugadores
+                        System.out.println("\n" + jugador1 + ":" + sacaJugador1 + " y " + jugador2 + sacaJugador2 + "\n");
+
+                        //
+                        // Dependiendo de lo que saque el uno o el otro, gana la ronda uno de los dos. 
+                        // O se empata la ronda y ninguno de los dos suma puntos. 
+                        if (sacaJugador1.equalsIgnoreCase("papel") && sacaJugador2.equalsIgnoreCase("papel")
+                                || sacaJugador1.equalsIgnoreCase("tijeras") && sacaJugador2.equalsIgnoreCase("tijeras")
+                                || sacaJugador1.equalsIgnoreCase("piedra") && sacaJugador2.equalsIgnoreCase("piedra")) {
+                            System.out.println("EMPATE. No gana la ronda ninguno");
+
+                        } else if (sacaJugador1.equalsIgnoreCase("papel") && sacaJugador2.equalsIgnoreCase("piedra")
+                                || sacaJugador1.equalsIgnoreCase("tijeras") && sacaJugador2.equalsIgnoreCase("papel")
+                                || sacaJugador1.equalsIgnoreCase("piedra") && sacaJugador2.equalsIgnoreCase("tijeras")) {
+                            System.out.println("Gana la ronda Nº" + (i + 1) + ":" + jugador1 + "\n");
+                            contador1++;
+
+                        } else {
+                            System.out.println("Gana la ronda Nº" + (i + 1) + ":" + jugador2 + "\n");
+                            contador2++;
                         }
 
-                    } while (repetir || !(sacaJugador1.equalsIgnoreCase("Piedra")
-                            || sacaJugador1.equalsIgnoreCase("Papel")
-                            || sacaJugador1.equalsIgnoreCase("tijeras")));
-                    System.out.println("¿Vas a sacar piedra papel o,tijera?");
+                        System.out.println("""
+                                           El %s lleva %d puntos
+                                           El %s lleva %d puntos
+                                           """.formatted(jugador1, contador1, jugador2, contador2));
+                        // En la última ronda se decide  quien ha ganado o quien ha perdido, SIN TENER EN CUENTA QUIEN HAYAGANADO 3 RONDAS PRIMERO
+                        if ((i + 1) == 5) {
+                            if (contador1 > contador2) {
+                                JOptionPane.showMessageDialog(null, "Gana el jugador 1:" + jugador1);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Gana el jugador 2:" + jugador2);
+                            }
+                        }
+
+                    }
 
                 } else {
                     System.out.println("Empieza el jugador2");
