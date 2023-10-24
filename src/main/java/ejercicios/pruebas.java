@@ -58,8 +58,6 @@ public class pruebas {
             //} while (tipoAceitunaNombre < 1 || tipoAceitunaNombre > 3);
             //
             //
-            //
-
             //Creo un switch para que se haga una cosa u otra dependiendo de la opcion.
             switch (tipoAceitunaNombre) {
                 case 1 -> {
@@ -197,7 +195,6 @@ public class pruebas {
                     }
                 }
             }
-
             //
             //
             // FILTRAR QUE SOLO SE REPITA SI SE PONE "SI" SI SE PONE ALGUNA OTRA COSA SE HA DE REPETIR LA PREGUNTA Y SI SE PONE "NO" SE DEBERÁ TERMINAR EL PROGRAMA.
