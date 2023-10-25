@@ -42,10 +42,18 @@ public class PiedraPapelTijeras {
                                3.- Salir
                                """;
         boolean repetir = true;
+        // 
+        String registroJugadores [] = null;
+        
+        
+        
+        
+        
+        
         // Filtro y controlo la excepción de la opción de juego.
 
         do {
-            
+
             do {
                 try {
                     opcionModoJuego = Integer.parseInt(JOptionPane.showInputDialog(opcionesDeJuego));
@@ -61,6 +69,7 @@ public class PiedraPapelTijeras {
                     System.out.println("JUEGO DE DOS JUGADORES");
                     String jugador1 = JOptionPane.showInputDialog("¿Nombre jugador 1?");
                     String jugador2 = JOptionPane.showInputDialog("¿Nombre jugador 2?");
+                    
                     //El dado decide quien empieza
                     dado = random.nextInt(3);
                     dado = 1;
@@ -253,10 +262,13 @@ public class PiedraPapelTijeras {
                             int randomMaquina = random.nextInt(4);
                             if (randomMaquina == 1) {
                                 sacaJugador2 = "Piedra";
+                                System.out.println("Máquina ya ha sacado");
                             } else if (randomMaquina == 2) {
                                 sacaJugador2 = "Papel";
+                                System.out.println("Máquina ya ha sacado");
                             } else {
                                 sacaJugador2 = "tijeras";
+                                System.out.println("Máquina ya ha sacado");
                             }
 
                             //
@@ -308,6 +320,81 @@ public class PiedraPapelTijeras {
 
                         }
 
+                    } else {
+                        System.out.println("Empieza el jugador2: " + jugador2);
+                        // Bucle para jugar 5Rondas
+                        for (int i = 0; i < 5; i++) {
+                            System.out.println((i + 1) + "/5");
+                            System.out.println("¿" + jugador2 + ", Que vas a sacar piedra/papel/tijera?");
+                            int randomMaquina = random.nextInt(4);
+                            if (randomMaquina == 1) {
+                                sacaJugador2 = "Piedra";
+                                System.out.println("Máquina ya ha sacado");
+                            } else if (randomMaquina == 2) {
+                                sacaJugador2 = "Papel";
+                                System.out.println("Máquina ya ha sacado");
+                            } else {
+                                sacaJugador2 = "tijeras";
+                                System.out.println("Máquina ya ha sacado");
+                            }
+
+                            do {
+                                System.out.println("¿" + jugador1 + ", Que vas a sacar piedra/papel/tijera?");
+                                try {
+                                    sacaJugador1 = teclado.nextLine();
+                                    repetir = false;
+                                } catch (InputMismatchException ime) {
+                                    System.out.println("ERROR");
+                                }
+                            } while (repetir || !(sacaJugador1.equalsIgnoreCase("Piedra") || sacaJugador1.equalsIgnoreCase("Papel") || sacaJugador1.equalsIgnoreCase("tijeras")));
+
+                            // Muestro las tiradas de ambos jugadores
+                            System.out.println("\n" + jugador2 + ":" + sacaJugador2 + " y " + jugador1 + ":" + sacaJugador1);
+
+                            //
+                            // Dependiendo de lo que saque el uno o el otro, gana la ronda uno de los dos. 
+                            // O se empata la ronda y ninguno de los dos suma puntos. 
+                            if (sacaJugador1.equalsIgnoreCase("papel") && sacaJugador2.equalsIgnoreCase("papel")
+                                    || sacaJugador1.equalsIgnoreCase("tijeras") && sacaJugador2.equalsIgnoreCase("tijeras")
+                                    || sacaJugador1.equalsIgnoreCase("piedra") && sacaJugador2.equalsIgnoreCase("piedra")) {
+                                System.out.println("EMPATE. No gana la ronda ninguno");
+
+                            } else if (sacaJugador1.equalsIgnoreCase("papel") && sacaJugador2.equalsIgnoreCase("piedra")
+                                    || sacaJugador1.equalsIgnoreCase("tijeras") && sacaJugador2.equalsIgnoreCase("papel")
+                                    || sacaJugador1.equalsIgnoreCase("piedra") && sacaJugador2.equalsIgnoreCase("tijeras")) {
+                                System.out.println("Gana la ronda Nº" + (i + 1) + ":" + jugador1);
+                                contador1++;
+
+                            } else {
+                                System.out.println("Gana la ronda Nº" + (i + 1) + ":" + jugador2);
+                                contador2++;
+                            }
+
+                            System.out.println("""
+                                           ***************************************
+                                                    El %s lleva %d puntos
+                                                    El %s lleva %d puntos
+                                           ***************************************
+                                           """.formatted(jugador1, contador1, jugador2, contador2));
+
+                            if (contador1 == 3 && contador1 > contador2) {
+                                System.out.println("Gana directamente: " + jugador1);
+                                break;
+                            } else if (contador2 == 3 && contador2 > contador1) {
+                                System.out.println("Gana directamente: " + jugador2);
+                                break;
+                            }
+
+                            // En la última ronda se decide  quien ha ganado o quien ha perdido, SIN TENER EN CUENTA QUIEN HAYAGANADO 3 RONDAS PRIMERO
+                            if ((i + 1) == 5) {
+                                if (contador1 > contador2) {
+                                    JOptionPane.showMessageDialog(null, "Gana el jugador 1:" + jugador1);
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Gana el jugador 2:" + jugador2);
+                                }
+                            }
+
+                        }
                     }
                 }
             }
