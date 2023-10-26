@@ -27,46 +27,36 @@ public class EjExamenn {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
-        int numCiudades = 2, numTiendas = 2, numEmpleados;
-        double dineroRecaudado = 0.0;
-        double recaudoTiendas = 0.0;
-        double recaudoCiudades = 0.0;
-
-        //
+        int numCiudades = 2, numTiendas = 2, numEmpleados = 2;
+        double dineroRecaudadoEmpleados = 0.0, recaudoTiendas = 0.0, recaudoCiudades = 0.0, recaudoTotal = 0.0;
         //
         //
         for (int i = 0; i < numCiudades; i++) {
             System.out.println("\n********Ciudad " + (i + 1) + "********");
-            //
             // 
             //
 
             for (int j = 0; j < numTiendas; j++) {
-                //System.out.println("¿Cuantos empleados hay en la tienda " + (j + 1) + " ?");
-                //numEmpleados = teclado.nextInt();
                 //
                 //
-                //
-                numEmpleados = 2;
+
                 for (int k = 0; k < numEmpleados; k++) {
                     System.out.println("¿Cuanto vendió Empleado " + (k + 1) + " de Tienda " + (j + 1) + " de Ciudad" + (i + 1) + "?");
-                    dineroRecaudado = teclado.nextDouble();
-                    dineroRecaudado = dineroRecaudado + dineroRecaudado;
-                    //
+                    dineroRecaudadoEmpleados = teclado.nextDouble();
+                    dineroRecaudadoEmpleados += dineroRecaudadoEmpleados;
                     //
                     //
                 }
-                recaudoTiendas = dineroRecaudado++;
+                recaudoTiendas = dineroRecaudadoEmpleados;
                 System.out.println("En la tienda " + (j + 1) + " se ha recaudado: " + recaudoTiendas + "€\n");
-                recaudoCiudades += recaudoTiendas;
+                recaudoTiendas += recaudoTiendas;
             }
-            
-            
+            recaudoCiudades = recaudoTiendas;
             System.out.println("Ciudad " + (i + 1) + " :" + recaudoCiudades);
-
+            recaudoCiudades += recaudoCiudades;
         }
-        double recaudoTotal = recaudoCiudades;
-        System.out.println("En el pais se ha recaudado: " + recaudoTotal);
+        recaudoTotal = recaudoCiudades;
+        System.out.println("PAIS: " + recaudoTotal);
 
     }
 
