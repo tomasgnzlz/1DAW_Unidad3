@@ -33,7 +33,7 @@ public class PiedraPapelTijeras {
 
         Scanner teclado = new Scanner(System.in);
         Random random = new Random();
-        int opcionModoJuego = 0; //
+        int opcionModoJuego = 0;
         int dado = 0;
 
         String opcionesDeJuego = """
@@ -42,16 +42,10 @@ public class PiedraPapelTijeras {
                                3.- Salir
                                """;
         boolean repetir = true;
-        // 
-        String registroJugadores [] = null;
-        
-        
-        
-        
-        
-        
-        // Filtro y controlo la excepción de la opción de juego.
 
+        
+
+        // Filtro y controlo la excepción de la opción de juego.
         do {
 
             do {
@@ -69,7 +63,7 @@ public class PiedraPapelTijeras {
                     System.out.println("JUEGO DE DOS JUGADORES");
                     String jugador1 = JOptionPane.showInputDialog("¿Nombre jugador 1?");
                     String jugador2 = JOptionPane.showInputDialog("¿Nombre jugador 2?");
-                    
+
                     //El dado decide quien empieza
                     dado = random.nextInt(3);
                     dado = 1;
@@ -141,7 +135,11 @@ public class PiedraPapelTijeras {
 
                             // En la última ronda se decide  quien ha ganado o quien ha perdido, SIN TENER EN CUENTA QUIEN HAYAGANADO 3 RONDAS PRIMERO
                             if ((i + 1) == 5) {
-                                if (contador1 > contador2) {
+
+                                if (contador1 == contador2) {
+                                    JOptionPane.showMessageDialog(null, "EMPATE, no Gana ningun jugador");
+
+                                } else if (contador1 > contador2) {
                                     JOptionPane.showMessageDialog(null, "Gana el jugador 1:" + jugador1);
                                 } else {
                                     JOptionPane.showMessageDialog(null, "Gana el jugador 2:" + jugador2);
